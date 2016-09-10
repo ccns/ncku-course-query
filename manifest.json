@@ -1,16 +1,29 @@
 {
   "manifest_version": 2,
-
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "成大課程查詢美化",
+  "description": "美化成大的課程查詢頁面",
   "version": "1.0",
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "http://course-query.acad.ncku.edu.tw/qry/index.php"
+  ],
+
+  "options_page": "options.html",
 
   "browser_action": {
     "default_icon": "icon.png",
+    "default_title": "Stylize!",
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
+  
+  "content_scripts": [
+    {
+      "matches": ["http://course-query.acad.ncku.edu.tw/qry/index.php"],
+      "css": ["style.css", "materialize/css/materialize.min.css"],
+      "js": ["jquery.js", "script.js", "materialize/js/materialize.min.js"]
+    }
   ]
+
 }
