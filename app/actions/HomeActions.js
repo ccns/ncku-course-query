@@ -7,7 +7,8 @@ class HomeActions {
       'getDeptListFail',
       'getCoursesSuccess',
       'getCoursesFail',
-      'updateDepts'
+      'updateDepts',
+      'updateColumn'
     );
   }
 

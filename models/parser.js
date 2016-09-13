@@ -52,7 +52,7 @@ function getCourseContent(dept, callback) {
   request('http://course-query.acad.ncku.edu.tw/qry/qry001.php?dept_no=' + dept, function (error, response, body) {
     if(!error && response.statusCode == 200){
       var content = parseCourse(body);
-      console.log(content);
+      //console.log(content);
       return callback(content);
     }
   })

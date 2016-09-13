@@ -9,6 +9,15 @@ class HomeStore {
     this.depts = [];
     this.courses = [];
     this.header = [];
+    this.column = {
+      '序號': true,
+      '班別': false,
+      '課程名稱(連結課程地圖)': true,
+      '時間': true,
+      '教室': false,
+      '教師姓名*:主負責老師': false,
+      '餘額 ': true
+    };
   }
 
   onGetDeptListSuccess(data) {
@@ -31,6 +40,10 @@ class HomeStore {
 
   onUpdateDepts(college) {
     this.depts = this.deptList.depts[college];
+  }
+
+  onUpdateColumn(column) {
+    this.column[column] = !this.column[column];
   }
 }
 
