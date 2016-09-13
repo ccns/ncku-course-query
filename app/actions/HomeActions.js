@@ -1,0 +1,37 @@
+import alt from '../alt';
+
+class HomeActions {
+  constructor() {
+    this.generateActions(
+      'getDeptListSuccess',
+      'getDeptListFail',
+      'getCoursesSuccess',
+      'getCoursesFail',
+      'updateDepts'
+    );
+  }
+
+  getDeptList() {
+    $.ajax({ url: '/api/deptlist' })
+      .done(data => {
+        this.actions.getDeptListSuccess(data);
+      })
+      .fail(jqXhr => {
+        this.actions.getDeptListFail(jqXhr.responseJSON.message);
+      });
+  }
+
+  getCourses(dept) {
+    dept = dept.split('=')[1];
+    $.ajax({ url: '/api/course/' + dept })
+      .done(data => {
+        this.actions.getCoursesSuccess(data);
+      })
+      .fail(jqXhr => {
+        this.actions.getCoursesFail(jqXhr.responseJSON.message);
+      });
+  }
+
+}
+
+export default alt.createActions(HomeActions);

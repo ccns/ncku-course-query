@@ -21,9 +21,13 @@
   "content_scripts": [
     {
       "matches": ["http://course-query.acad.ncku.edu.tw/qry/index.php"],
-      "css": ["style.css", "materialize/css/materialize.min.css"],
+      "css": ["style.css", "materialize/css/materialize.css"],
       "js": ["jquery.js", "script.js", "materialize/js/materialize.min.js"]
     }
+  ],
+
+  "web_accessible_resources": [
+    "materialize/*"
   ]
 
 }

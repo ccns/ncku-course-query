@@ -1,5 +1,5 @@
 * {
-  border: solid 1px;
+  border: solid 1px black;
   box-sizing: border-box;
 }
 
@@ -7,6 +7,6 @@ li {
   display: inline-block;
 }
 
-#func {
-  content: "";
+ul {
+  margin: 0;
 }
