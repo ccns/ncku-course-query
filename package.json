@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node server.js",
     "watch": "nodemon --exec babel-node -- server.js",
-    "update": "node -e 'require(\"./models/db.js\").update()'"
+    "update": "node -e 'require(\"./models/db.js\").update()'",
+    "postinstall": "bower install && gulp build"
   },
   "repository": {
     "type": "git",
