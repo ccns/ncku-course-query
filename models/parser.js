@@ -75,7 +75,7 @@ function parseCourse(html) {
       c[header[di]] = {};
       c[header[di]].text = $(dv).text();
       if ( di==10 )
-        c[header[di]].href = 'http://course-query.acad.ncku.edu.tw/qry/' + $(dv).find('a').attr('href');
+        c[header[di]].href = $(dv).find('a').attr('href');
       if ( di==18 )
         c['moodle'].href = 'http://course-query.acad.ncku.edu.tw/qry/' + $(dv).find('a').attr('href');
     });

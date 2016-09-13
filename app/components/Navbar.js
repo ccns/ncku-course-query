@@ -56,6 +56,7 @@ class Navbar extends React.Component {
               {navLinks}
               </ul>
             </li>
+            <li><a href="https://www.facebook.com/ncku.ccns/" target="_blank">CCNS</a></li>
           </ul>
         </div>
       </nav>

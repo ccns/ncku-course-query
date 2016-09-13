@@ -60,7 +60,7 @@ class Home extends React.Component {
           ? <span className='class'>{course['年級'].text+course['班別'].text}</span>
           : null}
         {this.state.column['課程名稱(連結課程地圖)']
-          ? <a className='name' href={course['課程名稱(連結課程地圖)'].href}>{course['課程名稱(連結課程地圖)'].text}</a>
+          ? <a className='name' href={course['課程名稱(連結課程地圖)'].href} target="_blank">{course['課程名稱(連結課程地圖)'].text}</a>
           : null}
         {this.state.column['餘額 ']
           ? <span className='remain pull-right text-center'>{course['餘額 '].text}</span>
