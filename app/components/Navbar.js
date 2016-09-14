@@ -13,6 +13,16 @@ class Navbar extends React.Component {
   componentDidMount() {
     NavbarStore.listen(this.onChange);
     NavbarActions.getMenu();
+
+    $(document).ajaxStart(() => {
+      NavbarActions.updateAjaxAnimation('fadeIn');
+    });
+
+    $(document).ajaxComplete(() => {
+      setTimeout(() => {
+        NavbarActions.updateAjaxAnimation('fadeOut');
+      }, 750);
+    });
   }
 
   componentWillUnmount() {
@@ -44,6 +54,17 @@ class Navbar extends React.Component {
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>
           <Link to='/' className='navbar-brand'>
+            <span ref='triangles' className={'triangles animated ' + this.state.ajaxAnimationClass}>
+              <div className='tri invert'></div>
+              <div className='tri invert'></div>
+              <div className='tri'></div>
+              <div className='tri invert'></div>
+              <div className='tri invert'></div>
+              <div className='tri'></div>
+              <div className='tri invert'></div>
+              <div className='tri'></div>
+              <div className='tri invert'></div>
+            </span>
             NCKU Course Query
           </Link>
         </div>
@@ -56,7 +77,7 @@ class Navbar extends React.Component {
               {navLinks}
               </ul>
             </li>
-            <li><a href="https://www.facebook.com/ncku.ccns/" target="_blank">CCNS粉絲專頁</a></li>
+            <li><a href="https://www.facebook.com/ncku.ccns/" target="_blank"><b>CCNS粉絲專頁</b></a></li>
           </ul>
         </div>
       </nav>

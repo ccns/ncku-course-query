@@ -54,25 +54,25 @@ class Home extends React.Component {
       return (
         <li className='list-group-item'>
         {this.state.column['序號']
-          ? <span className='no'>{course['序號'].text!=''? course['系號'].text+'-'+course['序號'].text : '' }</span>
+          ? <div className='no'>{course['序號'].text!=''? course['系號'].text+'-'+course['序號'].text : '' }</div>
           : null}
         {this.state.column['班別']
-          ? <span className='class'>{course['年級'].text+course['班別'].text}</span>
+          ? <div className='class'>{course['年級'].text+course['班別'].text}</div>
           : null}
         {this.state.column['課程名稱(連結課程地圖)']
-          ? <a className='name' href={course['課程名稱(連結課程地圖)'].href} target="_blank">{course['課程名稱(連結課程地圖)'].text}</a>
-          : null}
-        {this.state.column['餘額 ']
-          ? <span className='remain pull-right text-center'>{course['餘額 '].text}</span>
+          ? <div className='name'><a href={course['課程名稱(連結課程地圖)'].href} target="_blank">{course['課程名稱(連結課程地圖)'].text}</a></div>
           : null}
         {this.state.column['教師姓名*:主負責老師']
-          ? <span className='teacher pull-right text-right'>{course['教師姓名*:主負責老師'].text}</span>
+          ? <div className='teacher text-right'>{course['教師姓名*:主負責老師'].text}</div>
           : null}
         {this.state.column['教室']
-          ? <span className='room pull-right text-right'>{course['教室'].text}</span>
+          ? <div className='room text-right'>{course['教室'].text}</div>
           : null}
         {this.state.column['時間']
-          ? <span className='time pull-right text-right'>{course['時間'].text}</span>
+          ? <div className='time text-right'>{course['時間'].text}</div>
+          : null}
+        {this.state.column['餘額 ']
+          ? <div className='remain'>選 {course['已選課人數 '].text}<br />餘 {course['餘額 '].text}</div>
           : null}
         </li>
       );
@@ -82,7 +82,7 @@ class Home extends React.Component {
       return (
         <li onClick={this.handleColumnSelectClick.bind(this, h)}>
           <a>
-            {this.state.column[h]? <b>{h}</b>: h}
+            {this.state.column[h]? <b>{'[ｖ] '+h}</b> : '[　] '+h}
           </a>
         </li>
       );
@@ -111,16 +111,52 @@ class Home extends React.Component {
             <h3>課程列表
               <div className="dropdown">
                 <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  選擇欄位
+                  顯示欄位
                   <span className="caret"></span>
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                   {columnList}
                 </ul>
               </div>
+              <div className="dropdown">
+                <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  篩選器
+                  <span className="caret"></span>
+                </button>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenu2" id="filter">
+                  <li>時間</li>
+                  <li>
+                    <div className="btn-group" role="group" aria-label="..." id="day">
+                      <button type="button" className="btn btn-default">一</button>
+                      <button type="button" className="btn btn-default">二</button>
+                      <button type="button" className="btn btn-default">三</button>
+                      <button type="button" className="btn btn-default">四</button>
+                      <button type="button" className="btn btn-default">五</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="btn-group" role="group" aria-label="..." id="time">
+                      <div className="row-1">  
+                        <button type="button" className="btn btn-default">1</button>
+                        <button type="button" className="btn btn-default">2</button>
+                        <button type="button" className="btn btn-default">3</button>
+                        <button type="button" className="btn btn-default">4</button>
+                        <button type="button" className="btn btn-default">N</button>
+                      </div>
+                      <div className="row-2">  
+                        <button type="button" className="btn btn-default">5</button>
+                        <button type="button" className="btn btn-default">6</button>
+                        <button type="button" className="btn btn-default">7</button>
+                        <button type="button" className="btn btn-default">8</button>
+                        <button type="button" className="btn btn-default">9</button>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </div>
             </h3>
             <div className='panel'>
-              <ul className='list-group'>
+              <ul className='list-group course-list'>
                 {courseList}
               </ul>
             </div>

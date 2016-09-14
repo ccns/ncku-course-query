@@ -3,6 +3,7 @@ import alt from '../alt';
 class NavbarActions {
   constructor() {
     this.generateActions(
+      'updateAjaxAnimation',
       'getMenuSuccess',
       'getMenuFail'
     );

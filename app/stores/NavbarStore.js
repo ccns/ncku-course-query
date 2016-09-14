@@ -6,6 +6,7 @@ class NavbarStore {
     this.bindActions(NavbarActions);
     this.menus = [];
     this.relatedLinks = [];
+    this.ajaxAnimationClass = '';
   }
 
   onGetMenuSuccess(content) {
@@ -15,6 +16,10 @@ class NavbarStore {
 
   onGetMenuFail(jqXhr) {
     toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+  }
+
+  onUpdateAjaxAnimation(className) {
+    this.ajaxAnimationClass = className; //fadein or fadeout
   }
 }
 

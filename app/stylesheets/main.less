@@ -255,7 +255,7 @@ body {
 @trih: @triw*0.9;
 
 .triangles {
-  position: absolute;
+  position: fixed;
   top: 25px;
   left: 30px;
   height: @trih * 3;
@@ -338,24 +338,96 @@ body {
 
   .list-group-item {
     cursor: pointer;
-    span {
+  }
+
+  .course-list .list-group-item {
+    cursor: pointer;
+    display: flex;
+    div {
       display: inline-block;
       margin-right: 5px;
+      overflow-wrap: break-word;
     }
     .no {
-      width: 40px;
+      flex: 0;
+      min-width: 42px;
     }
     .class {
-      width: 52px;
+      flex: 0;
+      min-width: 52px;
+    }
+    .name {
+      flex: 5;
+    }
+    .teacher {
+      flex: 5;
+    }
+    .time {
+      flex: 1;
+      min-width: 38px;
     }
     .remain {
-      width: 29px;
+      flex: 0;
+      min-width: 50px;
     }
   }
 
   .dropdown {
     margin-left: 10px;
     display: inline-block;
+    a {
+      cursor: pointer;
+    }
+  }
+
+  #filter {
+    width: 250px;
+    padding: 10px 15px;
+    li {
+      margin: 5px 0px;
+    }
+    #day {
+      width: 100%;
+      display: flex;
+      .btn {
+        flex: 1;
+      }
+    }
+    #time {
+      width: 100%;
+      .row-1, .row-2 {
+        display: flex;
+        .btn {
+          flex: 1;
+        }
+        .btn:not(:first-child):not(:last-child) {
+          border-radius: 0;
+        }
+      }
+      .row-1 > .btn:first-child {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .row-1 > .btn:last-child {
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .row-2 > .btn:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+      .row-2 > .btn:last-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+      .row-2 > .btn{
+        margin-top: -1px;
+      }
+    }
   }
 }
 
