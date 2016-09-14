@@ -29,7 +29,8 @@ class HomeActions {
         this.actions.getCoursesSuccess(data);
       })
       .fail(jqXhr => {
-        this.actions.getCoursesFail(jqXhr);
+        console.log(jqXhr);
+        this.actions.getCoursesFail("載入失敗，請重試");
       });
   }
 
