@@ -1,5 +1,6 @@
 var request = require('request');
-var cheerio = require('cheerio')
+var cheerio = require('cheerio');
+var _ = require('underscore');
 
 function getIndexContent(callback) {
   request('http://course-query.acad.ncku.edu.tw/qry/index.php', function (error, response, body) {
@@ -70,19 +71,62 @@ function parseCourse(html) {
   tr.each(function(i, v) {
     var c = {};
     var td = $(v).children();
-    c['moodle'] = {};
-    td.each(function(di, dv) {
-      c[header[di]] = {};
-      c[header[di]].text = $(dv).text();
-      if ( di==10 )
-        c[header[di]].href = $(dv).find('a').attr('href');
-      if ( di==18 )
-        c['moodle'].href = 'http://course-query.acad.ncku.edu.tw/qry/' + $(dv).find('a').attr('href');
-    });
+    c.dept = td.eq(1).text();
+    c.no = td.eq(2).text();
+    c.serial = td.eq(3).text();
+    c.clas = td.eq(5).text().trim();
+    c.year = td.eq(6).text().trim();
+    c.ge = td.eq(10).text();
+    c.syllabus = td.eq(10).find('a').attr('href');
+    c.teacher = td.eq(13).text();
+    c.selected = td.eq(14).text();
+    c.remain = td.eq(15).text();
+    c.time = formatTime(td.eq(16).text());
+    c.classroom = td.eq(17).text().replace(/\s+/g,' ');
+    c.note = td.eq(18).text().trim();
+    c.moodle = 'http://course-query.acad.ncku.edu.tw/qry/' + td.eq(18).find('a').attr('href');
     courses.push(c);
   });
 
   return {header: header, courses: courses};
 }
 
-module.exports = {getIndexContent: getIndexContent, getCourseContent: getCourseContent};
+function formatTime(timeStr) {
+  var timeStr = timeStr.match(/\[.\].~.|\[.\]./g);
+  var time = {};
+  time.str = '';
+  time.data = '';
+  if (!timeStr) return time;
+  for(var i=0; i<timeStr.length; i++) {
+    time.data += period(timeStr[i]);
+    time.str += timeStr[i];
+    if (i!=timeStr.length-1) time.str += ',';
+  }
+  console.log(time);
+  return time;
+}
+
+function period(t) {
+  var d = day(t[1]);
+  var p = t.match('~') ? [t[3], t[5]] : [t[3], t[3]];
+  var s = '';
+  for(var i=parseInt(p[0]); i<=parseInt(p[1]); i++)
+    s += d+i;
+  return s;
+}
+
+function day(d) {
+  switch(d) {
+  case '1': return 'M';
+  case '2': return 'T';
+  case '3': return 'W';
+  case '4': return 'R';
+  case '5': return 'F';
+  case '6': return 'S';
+  }
+}
+
+module.exports = {
+  getIndexContent: getIndexContent, 
+  getCourseContent: getCourseContent,
+};

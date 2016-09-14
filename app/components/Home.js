@@ -54,25 +54,25 @@ class Home extends React.Component {
       return (
         <li className='list-group-item'>
         {this.state.column['序號']
-          ? <div className='no'>{course['序號'].text!=''? course['系號'].text+'-'+course['序號'].text : '' }</div>
+          ? <div className='no'>{course.no!=''? course.dept+'-'+course.no : '' }</div>
           : null}
         {this.state.column['班別']
-          ? <div className='class'>{course['年級'].text+course['班別'].text}</div>
+          ? <div className='class'>{course.year+course.clas}</div>
           : null}
         {this.state.column['課程名稱(連結課程地圖)']
-          ? <div className='name'><a href={course['課程名稱(連結課程地圖)'].href} target="_blank">{course['課程名稱(連結課程地圖)'].text}</a></div>
+          ? <div className='name'><a href={course.syllabus} target="_blank">{course.ge}</a></div>
           : null}
         {this.state.column['教師姓名*:主負責老師']
-          ? <div className='teacher text-right'>{course['教師姓名*:主負責老師'].text}</div>
+          ? <div className='teacher text-right'>{course.teacher}</div>
           : null}
         {this.state.column['教室']
-          ? <div className='room text-right'>{course['教室'].text}</div>
+          ? <div className='room text-right'>{course.classroom}</div>
           : null}
         {this.state.column['時間']
-          ? <div className='time text-right'>{course['時間'].text}</div>
+          ? <div className='time text-right'>{course.time.str.split(',')[0]}<br/>{course.time.str.split(',')[1]}</div>
           : null}
         {this.state.column['餘額 ']
-          ? <div className='remain'>選 {course['已選課人數 '].text}<br />餘 {course['餘額 '].text}</div>
+          ? <div className='remain'>選 {course.selected}<br />餘 {course.remain}</div>
           : null}
         </li>
       );

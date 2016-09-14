@@ -16,7 +16,7 @@ class HomeStore {
       '時間': true,
       '教室': false,
       '教師姓名*:主負責老師': false,
-      '餘額 ': true
+      '餘額': true, 
     };
   }
 
