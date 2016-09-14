@@ -71,7 +71,7 @@ class Home extends React.Component {
         {this.state.column['時間']
           ? <div className='time text-right'>{course.time.str.split(',')[0]}<br/>{course.time.str.split(',')[1]}</div>
           : null}
-        {this.state.column['餘額 ']
+        {this.state.column['餘額']
           ? <div className='remain'>選 {course.selected}<br />餘 {course.remain}</div>
           : null}
         </li>

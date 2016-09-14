@@ -102,7 +102,6 @@ function formatTime(timeStr) {
     time.str += timeStr[i];
     if (i!=timeStr.length-1) time.str += ',';
   }
-  console.log(time);
   return time;
 }
 
