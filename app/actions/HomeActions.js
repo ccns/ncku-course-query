@@ -18,7 +18,7 @@ class HomeActions {
         this.actions.getDeptListSuccess(data);
       })
       .fail(jqXhr => {
-        this.actions.getDeptListFail(jqXhr.responseJSON.message);
+        this.actions.getDeptListFail(jqXhr);
       });
   }
 
@@ -29,7 +29,7 @@ class HomeActions {
         this.actions.getCoursesSuccess(data);
       })
       .fail(jqXhr => {
-        this.actions.getCoursesFail(jqXhr.responseJSON.message);
+        this.actions.getCoursesFail(jqXhr);
       });
   }
 
