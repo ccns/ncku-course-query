@@ -54,13 +54,13 @@ class Home extends React.Component {
       return (
         <li className='list-group-item'>
         {this.state.column['序號']
-          ? <div className='no'>{course.no!=''? course.dept+'-'+course.no : '' }</div>
+          ? <div className='no'>{course.course_no ? course.dept_no+'-'+course.course_no : ''}</div>
           : null}
         {this.state.column['班別']
-          ? <div className='class'>{course.year+course.clas}</div>
+          ? <div className='class'>{course.year+course.group}</div>
           : null}
         {this.state.column['課程名稱(連結課程地圖)']
-          ? <div className='name'><a href={course.syllabus} target="_blank">{course.ge}</a></div>
+          ? <div className='name'><a href={course.map_url} target="_blank">{course.name}</a></div>
           : null}
         {this.state.column['教師姓名*:主負責老師']
           ? <div className='teacher text-right'>{course.teacher}</div>
@@ -69,7 +69,11 @@ class Home extends React.Component {
           ? <div className='room text-right'>{course.classroom}</div>
           : null}
         {this.state.column['時間']
-          ? <div className='time text-right'>{course.time.str.split(',')[0]}<br/>{course.time.str.split(',')[1]}</div>
+          ? <div className='time text-right'>{
+            course.time.split(/(?=\[)/g).map(function(t) {
+              return (<span>{t}<br/></span>);
+            })
+          }</div>
           : null}
         {this.state.column['餘額']
           ? <div className='remain'>選 {course.selected}<br />餘 {course.remain}</div>
@@ -136,14 +140,14 @@ class Home extends React.Component {
                   </li>
                   <li>
                     <div className="btn-group" role="group" aria-label="..." id="time">
-                      <div className="row-1">  
+                      <div className="row-1">
                         <button type="button" className="btn btn-default">1</button>
                         <button type="button" className="btn btn-default">2</button>
                         <button type="button" className="btn btn-default">3</button>
                         <button type="button" className="btn btn-default">4</button>
                         <button type="button" className="btn btn-default">N</button>
                       </div>
-                      <div className="row-2">  
+                      <div className="row-2">
                         <button type="button" className="btn btn-default">5</button>
                         <button type="button" className="btn btn-default">6</button>
                         <button type="button" className="btn btn-default">7</button>

@@ -8,6 +8,9 @@ var routes = require('./app/routes');
 
 var db = require('./models/db');
 var parser = require('./models/parser');
+var MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
+var url = "mongodb://crawler:ccnsccns@ds111798.mlab.com:11798/ncku-course-db";
 
 var app = express();
 
@@ -26,9 +29,18 @@ app.get('/api/deptlist', function(req, res, next) {
 
 app.get('/api/course/:dept', function(req, res, next) {
   var dept = req.params.dept;
-  parser.getCourseContent(dept, function(data) {
-    res.send(data);
-  });
+  MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    console.log("Connected correctly to server");
+    var collection = db.collection('courses');
+    collection.find({"dept_no": dept}).toArray(function(err, docs) {
+      assert.equal(err, null);
+      res.send(docs);
+    });
+  })
+  // parser.getCourseContent(dept, function(data) {
+  //   res.send(data);
+  // });
 });
 
 app.use(function(req, res) {
