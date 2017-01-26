@@ -10,7 +10,7 @@ var db = require('./models/db');
 var parser = require('./models/parser');
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
-var url = "mongodb://crawler:ccnsccns@ds111798.mlab.com:11798/ncku-course-db";
+var url = "mongodb://crawler:ccnsccns@140.116.252.148:27017/ncku-course-db";
 
 var app = express();
 
