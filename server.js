@@ -29,15 +29,9 @@ app.get('/api/deptlist', function(req, res, next) {
 
 app.get('/api/course/:dept', function(req, res, next) {
   var dept = req.params.dept;
-  MongoClient.connect(url, function(err, db) {
-    assert.equal(null, err);
-    console.log("Connected correctly to server");
-    var collection = db.collection('courses');
-    collection.find({"dept_no": dept}).toArray(function(err, docs) {
-      assert.equal(err, null);
-      res.send(docs);
-    });
-  })
+  db.getCourses(dept, function(result) {
+    res.send(result);
+  });
   // parser.getCourseContent(dept, function(data) {
   //   res.send(data);
   // });
