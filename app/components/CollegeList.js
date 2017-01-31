@@ -11,9 +11,9 @@ class CollegeList extends React.Component {
   }
 
   render() {
-    var collegeList = this.props.colleges.map(college => {
+    var collegeList = this.props.colleges.map((college, index) => {
       return (
-        <li onClick={this.handleCollegeClick.bind(this, college)} className='list-group-item'>{college}</li>
+        <li onClick={this.handleCollegeClick.bind(this, college)} className='list-group-item' key={index}>{college}</li>
       );
     });
 

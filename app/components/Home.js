@@ -49,10 +49,9 @@ class Home extends React.Component {
           <div className='col-md-6'>
             <h3>課程列表
               <ColumnSelector column={this.state.column}/>
-              <Filter/>
             </h3>
             <div className='panel'>
-              <CourseList courses={this.state.courses}/>
+              <CourseList courses={this.state.courses} column={this.state.column}/>
             </div>
           </div>
         </div>

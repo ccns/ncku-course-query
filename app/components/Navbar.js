@@ -34,22 +34,22 @@ class Navbar extends React.Component {
   }
 
   render() {
-    let navMenus = this.state.menus.map((menu) => {
+    let navMenus = this.state.menus.map((menu, index) => {
       return (
-        <li>
+        <li key={index}>
           <a href={menu.href} target="_blank">{menu.text}</a>
         </li>
       )
     });
-     
-    let navLinks = this.state.relatedLinks.map((link) => {
+
+    let navLinks = this.state.relatedLinks.map((link, index) => {
       return (
-        <li>
+        <li key={index}>
           <a href={link.href} target="_blank">{link.text}</a>
         </li>
       )
     });
-     
+
     return (
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>

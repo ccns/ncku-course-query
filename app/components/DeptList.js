@@ -11,9 +11,9 @@ class DeptList extends React.Component {
   }
 
   render() {
-    var deptList = this.props.depts.map(dept => {
+    var deptList = this.props.depts.map((dept, index) => {
       return (
-        <li onClick={this.handleDeptClick.bind(this, dept.href)} className='list-group-item'>{dept.text}</li>
+        <li onClick={this.handleDeptClick.bind(this, dept.href)} className='list-group-item' key={index}>{dept.text}</li>
       );
     });
 

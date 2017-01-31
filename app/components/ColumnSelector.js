@@ -11,9 +11,9 @@ class ColumnSelector extends React.Component {
   }
 
   render() {
-    var columnList = Object.keys(this.props.column).map(h => {
+    var columnList = Object.keys(this.props.column).map((h, index) => {
       return (
-        <li onClick={this.handleColumnSelectClick.bind(this, h)}>
+        <li onClick={this.handleColumnSelectClick.bind(this, h)} key={index}>
           <a>
             {this.props.column[h]? <b>{'[ｖ] '+h}</b> : '[　] '+h}
           </a>
