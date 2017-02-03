@@ -5,7 +5,8 @@ var parser = require('./parser.js');
 
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
-var url = "mongodb://crawler:ccnsccns@140.116.252.148:27017/ncku-course-db";
+// var url = "mongodb://crawler:ccnsccns@140.116.252.148:27017/ncku-course-db";
+var url = "mongodb://crawler:ccnsccns@localhost:27017/ncku-course-db";
 
 function update() {
   parser.getIndexContent(function(content) {

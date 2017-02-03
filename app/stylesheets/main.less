@@ -404,7 +404,7 @@ body {
     }
     #time {
       width: 100%;
-      .row-1, .row-2 {
+      .row-1, .row-2, .row-3 {
         display: flex;
         .btn {
           flex: 1;
@@ -427,13 +427,28 @@ body {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
       .row-2 > .btn:last-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .row-2 > .btn{
+        margin-top: -1px;
+      }
+      .row-3 > .btn:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+      .row-3 > .btn:last-child {
         border-top-right-radius: 0;
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
       }
-      .row-2 > .btn{
+      .row-3 > .btn{
         margin-top: -1px;
       }
     }
