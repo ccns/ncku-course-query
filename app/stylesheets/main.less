@@ -398,13 +398,14 @@ body {
     #day {
       width: 100%;
       display: flex;
-      .btn {
+      div {
+        text-align: center;
         flex: 1;
       }
     }
     #time {
       width: 100%;
-      .row-1, .row-2, .row-3 {
+      div[class^="row-"] {
         display: flex;
         .btn {
           flex: 1;
@@ -413,42 +414,42 @@ body {
           border-radius: 0;
         }
       }
-      .row-1 > .btn:first-child {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-      .row-1 > .btn:last-child {
-        border-bottom-right-radius: 0;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-      .row-2 > .btn:first-child {
+      div[class^="row-"] > .btn:first-child {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
-      .row-2 > .btn:last-child {
+      div[class^="row-"] > .btn:last-child {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
-      .row-2 > .btn{
+      div[class^="row-"] > .btn{
         margin-top: -1px;
       }
-      .row-3 > .btn:first-child {
+      .row-0 > .btn:first-child {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .row-0 > .btn:last-child {
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .row-14 > .btn:first-child {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
       }
-      .row-3 > .btn:last-child {
+      .row-14 > .btn:last-child {
         border-top-right-radius: 0;
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
       }
-      .row-3 > .btn{
+      .row-14 > .btn{
         margin-top: -1px;
       }
     }

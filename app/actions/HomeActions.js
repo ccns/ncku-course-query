@@ -8,7 +8,8 @@ class HomeActions {
       'getCoursesSuccess',
       'getCoursesFail',
       'updateDepts',
-      'updateColumn'
+      'updateColumn',
+      'filterTime'
     );
   }
 
