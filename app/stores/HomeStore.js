@@ -7,6 +7,7 @@ class HomeStore {
     this.deptList = {};
     this.colleges = [];
     this.depts = [];
+    this.deptSelected = "";
     this.courses = [];
     this.courses_all = [];
     this.times = {};
@@ -20,6 +21,10 @@ class HomeStore {
       '教師姓名*:主負責老師': false,
       '餘額': true,
     };
+  }
+
+  onUpdateDeptSelected(dept) {
+    this.deptSelected = dept;
   }
 
   onGetDeptListSuccess(data) {
@@ -70,6 +75,18 @@ class HomeStore {
       return course;
     })
   }
+
+  onSearchSuccess(data) {
+    var data = data.map(d => d._source);
+    console.log(data);
+    this.courses_all = data;
+    this.updateCourses();
+  }
+
+  onSearchFail(errorMessage) {
+    toastr.error(errorMessage);
+  }
+
 }
 
 export default alt.createStore(HomeStore);

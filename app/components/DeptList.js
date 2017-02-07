@@ -7,6 +7,8 @@ class DeptList extends React.Component {
   }
 
   handleDeptClick(dept) {
+    dept = dept.split('=')[1];
+    HomeActions.updateDeptSelected(dept);
     HomeActions.getCourses(dept);
   }
 

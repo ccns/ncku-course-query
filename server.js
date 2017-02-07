@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser')
 
 var swig  = require('swig');
 var React = require('react');
@@ -8,14 +9,13 @@ var routes = require('./app/routes');
 
 var db = require('./models/db');
 var parser = require('./models/parser');
-var MongoClient = require('mongodb').MongoClient
-  , assert = require('assert');
-var url = "mongodb://crawler:ccnsccns@140.116.252.148:27017/ncku-course-db";
+var search = require('./models/search')
 
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
 
 app.get('/api/menus', function(req, res, next) {
   var data = db.get('/menus');
@@ -25,6 +25,19 @@ app.get('/api/menus', function(req, res, next) {
 app.get('/api/deptlist', function(req, res, next) {
   var data = db.get('/deptList');
   res.send(data);
+});
+
+app.post('/api/search', function(req, res, next) {
+  if (!req.body) return res.sendStatus(400);
+  var data = search(req.body,
+      function (resp) {
+        var hits = resp.hits.hits;
+        console.log(hits);
+        res.send(hits);
+      }, function (err) {
+        console.trace(err.message);
+        res.send(err.message);
+      });
 });
 
 app.get('/api/course/:dept', function(req, res, next) {

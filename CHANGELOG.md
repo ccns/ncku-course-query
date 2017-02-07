@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Search form.
+- Search api.
+- Implement search function.
 
 ### Changed
 - Align of time selector dropmenu.
