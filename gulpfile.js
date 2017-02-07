@@ -100,8 +100,10 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
  |--------------------------------------------------------------------------
  */
 gulp.task('styles', function() {
-  return gulp.src('app/stylesheets/main.less')
-    .pipe(plumber())
+  return gulp.src([
+    'bower_components/components-font-awesome/less/font-awesome.less',
+    'app/stylesheets/main.less'
+  ]).pipe(plumber())
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(gulpif(production, cssmin()))
@@ -110,7 +112,14 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
   gulp.watch('app/stylesheets/**/*.less', ['styles']);
+  gulp.watch('app/javascript/**/*.js', ['vendor']);
 });
 
-gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
-gulp.task('build', ['styles', 'vendor', 'browserify']);
+// Move font-awesome fonts folder to css compiled folder
+gulp.task('icons', function() {
+    return gulp.src('bower_components/components-font-awesome/fonts/**.*')
+        .pipe(gulp.dest('public/fonts'));
+});
+
+gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch', 'icons']);
+gulp.task('build', ['styles', 'vendor', 'browserify', 'icon']);

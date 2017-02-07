@@ -1,10 +1,10 @@
 $(function() {
-  $("#day .btn, #time .btn").click(function() {
+  $("#time .btn").click(function() {
     $(this).toggleClass("active");
   })
 
   $("#dropdownMenu2").click(function() {
-    $(this).parent().addClass("open");
+    $(this).parent().toggleClass("open");
   })
 
   $('body').click(function (e) {

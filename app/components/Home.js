@@ -8,6 +8,7 @@ import DeptList from './DeptList'
 import CourseList from './CourseList'
 import ColumnSelector from './ColumnSelector'
 import Filter from './Filter'
+import Search from './Search'
 
 class Home extends React.Component {
 
@@ -52,6 +53,7 @@ class Home extends React.Component {
               <Filter/>
             </h3>
             <div className='panel'>
+              <Search />
               <CourseList courses={this.state.courses} column={this.state.column}/>
             </div>
           </div>

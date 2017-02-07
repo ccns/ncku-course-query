@@ -53,7 +53,6 @@ class HomeStore {
       delete this.times[time];
     else
       this.times[time] = true;
-    console.log(this.times);
     this.updateCourses();
   }
 

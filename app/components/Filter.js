@@ -34,7 +34,7 @@ class Filter extends React.Component {
           篩選器
           <span className="caret"></span>
         </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenu2" id="filter">
+        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2" id="filter">
           <li>時間</li>
           <li>
             <div className="btn-group" role="group" aria-label="..." id="day">
