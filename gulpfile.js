@@ -122,4 +122,4 @@ gulp.task('icons', function() {
 });
 
 gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch', 'icons']);
-gulp.task('build', ['styles', 'vendor', 'browserify', 'icon']);
+gulp.task('build', ['styles', 'vendor', 'browserify', 'icons']);
