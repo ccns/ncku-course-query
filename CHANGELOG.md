@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - The course list is disappeared.
+- Wrong focus effect of time selector btns.
 
 ## 0.1 - 2017-02-06
 ### Added

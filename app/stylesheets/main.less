@@ -415,9 +415,17 @@ body {
         display: flex;
         .btn {
           flex: 1;
+          margin-top: -1px;
+          &:focus {
+            outline: 0 none;
+          }
         }
         .btn:not(:first-child):not(:last-child) {
           border-radius: 0;
+        }
+        .btn:not(.active):not(:active):focus {
+          border-color: transparent;
+          background-color: transparent;
         }
       }
       div[class^="row-"] > .btn:first-child {
@@ -431,9 +439,6 @@ body {
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-      }
-      div[class^="row-"] > .btn{
-        margin-top: -1px;
       }
       .row-0 > .btn:first-child {
         border-bottom-right-radius: 0;
@@ -454,9 +459,6 @@ body {
         border-top-right-radius: 0;
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
-      }
-      .row-14 > .btn{
-        margin-top: -1px;
       }
     }
   }
