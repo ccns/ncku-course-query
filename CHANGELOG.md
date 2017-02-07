@@ -6,10 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Search form
+- Search form.
 
 ### Changed
-- Align of time selector dropmenu
+- Align of time selector dropmenu.
+
+### Fixed
+- The course list is disappeared.
 
 ## 0.1 - 2017-02-06
 ### Added
