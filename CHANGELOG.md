@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Search form.
 - Search api.
 - Implement search function.
+- Env based db configuration.
 
 ### Changed
 - Align of time selector dropmenu.

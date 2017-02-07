@@ -1,0 +1,8 @@
+{
+  "mongo": {
+    "url": "mongodb://crawler:ccnsccns@localhost:27017/ncku-course-db"
+  },
+  "elasticsearch": {
+    "host": "localhost:9200"
+  }
+}

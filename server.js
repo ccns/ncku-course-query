@@ -13,6 +13,8 @@ var search = require('./models/search')
 
 var app = express();
 
+console.log(process.env.NODE_ENV)
+
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -32,7 +34,6 @@ app.post('/api/search', function(req, res, next) {
   var data = search(req.body,
       function (resp) {
         var hits = resp.hits.hits;
-        console.log(hits);
         res.send(hits);
       }, function (err) {
         console.trace(err.message);

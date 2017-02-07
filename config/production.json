@@ -1,0 +1,8 @@
+{
+  "mongo": {
+    "url": "mongodb://crawler:ccnsccns@140.116.252.148:27017/ncku-course-db"
+  },
+  "elasticsearch": {
+    "host": "140.116.252.148:9202"
+  }
+}
