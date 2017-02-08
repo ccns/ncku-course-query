@@ -9,8 +9,8 @@ class NavbarActions {
     );
   }
 
-  getMenu() {
-    $.ajax({ url: '/api/menus' })
+  getLinks() {
+    $.ajax({ url: '/api/links' })
     .done((data) => {
       this.actions.getMenuSuccess(data)
     })

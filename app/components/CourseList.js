@@ -18,7 +18,11 @@ class CourseList extends React.Component {
             ? <div className='class'>{course.year+course.classes+course.group}</div>
             : null}
           {this.props.column['課程名稱(連結課程地圖)']
-            ? <div className='name'><a href={course.map_url} target="_blank">{course.name}</a></div>
+            ? <div className='name'>
+              {course.map_url
+                ? <a href={course.map_url} target="_blank">{course.name}</a>
+                : course.name}
+              </div>
             : null}
           {this.props.column['教師姓名*:主負責老師']
             ? <div className='teacher text-right'>{course.teacher}</div>

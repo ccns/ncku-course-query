@@ -12,7 +12,7 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     NavbarStore.listen(this.onChange);
-    NavbarActions.getMenu();
+    NavbarActions.getLinks();
 
     $(document).ajaxStart(() => {
       NavbarActions.updateAjaxAnimation('fadeIn');
@@ -34,20 +34,30 @@ class Navbar extends React.Component {
   }
 
   render() {
-    let navMenus = this.state.menus.map((menu, index) => {
-      return (
-        <li key={index}>
-          <a href={menu.href} target="_blank">{menu.text}</a>
-        </li>
-      )
-    });
-
-    let navLinks = this.state.relatedLinks.map((link, index) => {
-      return (
-        <li key={index}>
-          <a href={link.href} target="_blank">{link.text}</a>
-        </li>
-      )
+    let navMenus = this.state.links.map((link, index) => {
+      if(typeof link.href === 'string') {
+        return (
+          <li key={index}>
+            <a href={link.href} target="_blank">{link.text}</a>
+          </li>
+        )
+      } else {
+        let links = link.href.map((menu, index) => {
+          return (
+            <li key={index}>
+              <a href={menu.href} target="_blank">{menu.text}</a>
+            </li>
+          )
+        });
+        return (
+          <li className='dropdown'>
+            <a href='#' className='dropdown-toggle' data-toggle='dropdown'>{link.text} <span className='caret'></span></a>
+            <ul className='dropdown-menu'>
+            {links}
+            </ul>
+          </li>
+        )
+      }
     });
 
     return (
@@ -71,13 +81,6 @@ class Navbar extends React.Component {
         <div id='navbar' className='navbar-collapse collapse'>
           <ul className='nav navbar-nav'>
             {navMenus}
-            <li className='dropdown'>
-              <a href='#' className='dropdown-toggle' data-toggle='dropdown'>相關連結 <span className='caret'></span></a>
-              <ul className='dropdown-menu'>
-              {navLinks}
-              </ul>
-            </li>
-            <li><a href="https://www.facebook.com/ncku.ccns/" target="_blank"><b>CCNS粉絲專頁</b></a></li>
           </ul>
         </div>
       </nav>

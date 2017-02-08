@@ -1,19 +1,10 @@
 var JsonDB = require('node-json-db');
-var db = new JsonDB("indexContent", true, false);
+var db = new JsonDB("links", true, false);
 var config = require('config');
-
-var parser = require('./parser.js');
 
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 var url = config.get('mongo.url');
-
-function update() {
-  parser.getIndexContent(function(content) {
-    db.push("/menus", content.menu);
-    db.push("/deptList", content.deptList);
-  });
-}
 
 function get(path) {
   var content = db.getData(path);
@@ -44,4 +35,4 @@ function getCourses(dept, callback) {
   })
 }
 
-export {get, update, getDepts, getCourses};
+export {get, getDepts, getCourses};

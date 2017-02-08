@@ -8,7 +8,6 @@ var Router = require('react-router');
 var routes = require('./app/routes');
 
 var db = require('./models/db');
-var parser = require('./models/parser');
 var search = require('./models/search')
 
 var app = express();
@@ -17,8 +16,8 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-app.get('/api/menus', function(req, res, next) {
-  var data = db.get('/menus');
+app.get('/api/links', function(req, res, next) {
+  var data = db.get('/links');
   res.send(data);
 });
 
@@ -46,9 +45,6 @@ app.get('/api/course/:dept', function(req, res, next) {
   db.getCourses(dept, function(result) {
     res.send(result);
   });
-  // parser.getCourseContent(dept, function(data) {
-  //   res.send(data);
-  // });
 });
 
 app.use(function(req, res) {
