@@ -4,7 +4,7 @@ import HomeActions from '../actions/HomeActions';
 class HomeStore {
   constructor() {
     this.bindActions(HomeActions);
-    this.deptList = {};
+    this.deptList = [];
     this.colleges = [];
     this.depts = [];
     this.deptSelected = "";
@@ -29,7 +29,6 @@ class HomeStore {
 
   onGetDeptListSuccess(data) {
     this.deptList = data;
-    this.colleges = data.colleges;
   }
 
   onGetDeptListFail(errorMessage) {
@@ -46,7 +45,7 @@ class HomeStore {
   }
 
   onUpdateDepts(college) {
-    this.depts = this.deptList.depts[college];
+    this.depts = this.deptList[college].depts;
   }
 
   onUpdateColumn(column) {

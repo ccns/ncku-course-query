@@ -20,7 +20,7 @@ function get(path) {
   return content;
 }
 
-function getDepts() {
+function getDepts(callback) {
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     console.log("Connected correctly to server");

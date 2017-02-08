@@ -55,7 +55,7 @@ class Home extends React.Component {
               :null}
             </h3>
             <div className='panel'>
-              <CollegeList colleges={this.state.colleges}/>
+              <CollegeList deptList={this.state.deptList}/>
             </div>
           </div>
           <div className='col-sm-6 col-md-1 panel-container' id='dept-container'>

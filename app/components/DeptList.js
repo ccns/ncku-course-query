@@ -7,7 +7,6 @@ class DeptList extends React.Component {
   }
 
   handleDeptClick(dept) {
-    dept = dept.split('=')[1];
     HomeActions.updateDeptSelected(dept);
     HomeActions.getCourses(dept);
     if ($(window).width() < 992) {
@@ -20,7 +19,7 @@ class DeptList extends React.Component {
   render() {
     var deptList = this.props.depts.map((dept, index) => {
       return (
-        <li onClick={this.handleDeptClick.bind(this, dept.href)} className='list-group-item' key={index}>{dept.text}</li>
+        <li onClick={this.handleDeptClick.bind(this, dept.dept_no)} className='list-group-item' key={index}>{dept.dept_name}</li>
       );
     });
 

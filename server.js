@@ -23,8 +23,10 @@ app.get('/api/menus', function(req, res, next) {
 });
 
 app.get('/api/deptlist', function(req, res, next) {
-  var data = db.get('/deptList');
-  res.send(data);
+  // var data = db.get('/deptList');
+  db.getDepts(function(data) {
+    res.send(data);
+  })
 });
 
 app.post('/api/search', function(req, res, next) {
