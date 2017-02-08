@@ -43,7 +43,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state.width);
     return (
       <div className='container' id='main-container'>
         <div className='row'>

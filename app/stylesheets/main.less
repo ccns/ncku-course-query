@@ -423,9 +423,11 @@ body {
         > .btn:not(:first-child):not(:last-child) {
           border-radius: 0;
         }
-        > .btn:not(.active):not(:active):focus {
-          border-color: #dee5e7;
-          background-color: transparent;
+        > .btn:not(.active):not(:active) {
+          &:focus, &:hover {
+            border-color: #dee5e7;
+            background-color: transparent;
+          }
         }
         > .btn:first-child, > .btn:last-child{
           border-top-right-radius: 0;
@@ -447,7 +449,7 @@ body {
     padding: 10px 20px;
 
     .search-query {
-      width: calc(~'100% - 29px');
+      width: calc(~'100% - 30px');
       background: transparent;
       border: none;
       -webkit-transition: border-bottom .3s; /* Safari */
@@ -463,6 +465,7 @@ body {
     }
 
     .search-btn {
+      width: 29px;
       background: transparent;
       border: none;
       &:active {
