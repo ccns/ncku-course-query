@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fold effect of panels.
 - Skip button for mobile.
 - GA code.
+- FB OG code.
+- Viewport setting.
 
 ### Fixed
 - Fix width detect problem when serverside rendering.
