@@ -31,23 +31,38 @@ class Home extends React.Component {
     this.setState(state);
   }
 
+  handleSkipClick() {
+    if ($(window).width() < 992) {
+      $('html, body').animate({
+        scrollTop: $("#course-container").offset().top
+      }, 500);
+      $('input.search-query').focus();
+    }
+  }
+
   render() {
     return (
-      <div className='container' id='main-list'>
+      <div className='container' id='main-container'>
         <div className='row'>
-          <div className='col-md-3'>
-            <h3>學院</h3>
+          <div className='col-sm-6 col-md-1 panel-container' id='college-container'>
+            <h3>學院
+              {$(window).width() < 992?
+              <button className="btn btn-default" id="skip" onClick={this.handleSkipClick.bind(this)}>
+                搜尋全部課程
+              </button>
+              :null}
+            </h3>
             <div className='panel'>
               <CollegeList colleges={this.state.colleges}/>
             </div>
           </div>
-          <div className='col-md-3'>
+          <div className='col-sm-6 col-md-1 panel-container' id='dept-container'>
             <h3>系所</h3>
             <div className='panel'>
               <DeptList depts={this.state.depts}/>
             </div>
           </div>
-          <div className='col-md-6'>
+          <div className='col-sm-12 col-md-10 panel-container' id='course-container'>
             <h3>課程列表
               <ColumnSelector column={this.state.column}/>
               <Filter/>

@@ -10,6 +10,11 @@ class DeptList extends React.Component {
     dept = dept.split('=')[1];
     HomeActions.updateDeptSelected(dept);
     HomeActions.getCourses(dept);
+    if ($(window).width() < 992) {
+      $('html, body').animate({
+        scrollTop: $("#course-container").offset().top
+      }, 500);
+    }
   }
 
   render() {

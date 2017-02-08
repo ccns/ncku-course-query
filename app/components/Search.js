@@ -22,7 +22,7 @@ class Search extends React.Component {
   render() {
     return (
       <div id="search" className="pull-right">
-        <input type="text" className="search-query" placeholder="Search"  value={this.state.value} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this)} />
+        <input type="text" className="search-query" placeholder="Search (不選擇系所直接輸入可搜尋全部課程)"  value={this.state.value} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this)} />
         <button className="search-btn" onClick={this.handleSearchClick.bind(this)}><i className="fa fa-search" aria-hidden="true"></i></button>
       </div>
     );

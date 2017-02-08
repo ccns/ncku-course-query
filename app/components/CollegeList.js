@@ -8,6 +8,11 @@ class CollegeList extends React.Component {
 
   handleCollegeClick(college) {
     HomeActions.updateDepts(college);
+    if ($(window).width() < 992) {
+      $('html, body').animate({
+        scrollTop: $("#dept-container").offset().top
+      }, 500);
+    }
   }
 
   render() {
