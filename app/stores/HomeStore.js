@@ -18,7 +18,7 @@ class HomeStore {
       '課程名稱(連結課程地圖)': true,
       '時間': true,
       '教室': false,
-      '教師姓名*:主負責老師': false,
+      '教師姓名*:主負責老師': true,
       '餘額': true,
     };
   }
@@ -77,8 +77,8 @@ class HomeStore {
   }
 
   onSearchSuccess(data) {
+    // console.log(data);
     var data = data.map(d => d._source);
-    console.log(data);
     this.courses_all = data;
     this.updateCourses();
   }

@@ -16,7 +16,7 @@ class Search extends React.Component {
   }
 
   handleSearchClick() {
-    HomeActions.search(this.state.value);
+    HomeActions.search(this.state.value, this.props.dept);
   }
 
   render() {

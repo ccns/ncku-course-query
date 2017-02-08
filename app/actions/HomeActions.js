@@ -41,18 +41,21 @@ class HomeActions {
     var obj = {};
     var query = {};
     var bool = {};
+    var code_bool = {};
     if(dept)
       bool.must = {match: {dept_no: dept}};
+    code_bool.must = [];
+    code_bool.must.push({match: {dept_no: {query: q, boost: 1}}});
+    code_bool.must.push({match: {course_no: {query: q, boost: 1}}});
     bool.should = [];
-    bool.should.push({match: {dept_no: q}});
-    bool.should.push({match: {course_no: q}});
-    bool.should.push({match: {name: q}});
-    bool.should.push({match: {teacher: q}});
-    bool.should.push({match: {required: q}});
-    bool.should.push({match: {memo: q}});
+    bool.should.push({bool: code_bool});
+    bool.should.push({match: {name: {query: q, boost: 4}}});
+    bool.should.push({match: {teacher: {query: q, boost: 2}}});
+    bool.should.push({match: {required: {query: q, boost: 1}}});
     query.bool = bool;
     obj.query = query;
-    console.log(JSON.stringify(obj));
+    obj.size = 50;
+    // console.log(JSON.stringify(obj));
     $.ajax({
       url: '/api/search',
       method: "POST",

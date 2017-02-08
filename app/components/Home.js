@@ -53,7 +53,7 @@ class Home extends React.Component {
               <Filter/>
             </h3>
             <div className='panel'>
-              <Search />
+              <Search dept={this.state.deptSelected} />
               <CourseList courses={this.state.courses} column={this.state.column}/>
             </div>
           </div>
