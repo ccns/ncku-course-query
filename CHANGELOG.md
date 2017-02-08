@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - FB OG code.
 - Viewport setting.
 
+### Changed
+- Change text of button.
+
 ### Fixed
 - Fix width detect problem when serverside rendering.
 
