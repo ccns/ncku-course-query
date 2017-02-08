@@ -8,4 +8,7 @@ $ npm run watch
 ```
 
 ## TODO
-[ ] Refactoring react code and make db module
+[ ] Remain watch
+[ ] A9 wishes helper
+[ ] Virtural classtable
+[ ] Integral with classtable generator
