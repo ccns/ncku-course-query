@@ -24,7 +24,7 @@ class ColumnSelector extends React.Component {
     return (
       <div className="dropdown">
         <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          顯示欄位
+          欄位
           <span className="caret"></span>
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">

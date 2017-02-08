@@ -31,7 +31,7 @@ class Filter extends React.Component {
     return (
       <div className="dropdown" id="filterMenu">
         <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" aria-haspopup="true" aria-expanded="true">
-          篩選器
+          時間篩選
           <span className="caret"></span>
         </button>
         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2" id="filter">
