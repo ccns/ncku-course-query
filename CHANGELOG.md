@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Skip button for mobile.
 - GA code.
 
+### Fixed
+- Fix width detect problem when serverside rendering.
+
 ## [0.2] - 2017-02-08
 ### Added
 - Search form.

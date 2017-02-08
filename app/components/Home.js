@@ -16,11 +16,13 @@ class Home extends React.Component {
     super(props);
     this.state = HomeStore.getState();
     this.onChange = this.onChange.bind(this);
+    this.state.width = 1080;
   }
 
   componentDidMount() {
     HomeStore.listen(this.onChange);
     HomeActions.getDeptList();
+    this.setState({width:window.innerWidth});
   }
 
   componentWillUnmount() {
@@ -41,12 +43,13 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(this.state.width);
     return (
       <div className='container' id='main-container'>
         <div className='row'>
           <div className='col-sm-6 col-md-1 panel-container' id='college-container'>
             <h3>學院
-              {$(window).width() < 992?
+              {this.state.width < 992?
               <button className="btn btn-default" id="skip" onClick={this.handleSkipClick.bind(this)}>
                 搜尋全部課程
               </button>
